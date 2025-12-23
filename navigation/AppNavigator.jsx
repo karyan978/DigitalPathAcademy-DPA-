@@ -16,7 +16,7 @@ export default function AppNavigator() {
     return unsubscribe;
   }, []);
 
-  if (loading) return null; // यहाँ लोडिंग इंडिकेटर लगा सकते हैं
+  if (loading) return null;
 
   return user ? <AppTabs /> : <AuthStack />;
 }

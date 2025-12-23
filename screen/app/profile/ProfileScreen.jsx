@@ -12,24 +12,10 @@ import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-nat
 const ProfileScreen = () => {
   const navigation = useNavigation();
 
-  const completeProfile = async () => {
-    try {
-      // currentUser check for safety
-      if (auth.currentUser) {
-        await updateDoc(doc(db, 'users', auth.currentUser.uid), {
-          profileCompleted: true,
-        });
-        navigation.replace('Home');
-      }
-    } catch (error) {
-      console.error("Error updating profile: ", error);
-    }
-  };
-
   return (
     <View style={styles.container}>
-      <ScrollView 
-        contentContainerStyle={{ flexGrow: 1, paddingBottom: hp('5%') }} 
+      <ScrollView
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: hp('5%') }}
         showsVerticalScrollIndicator={false}
       >
         <LinearGradient
@@ -68,42 +54,42 @@ const ProfileScreen = () => {
           {/* Row 1 */}
           <View style={styles.facilityRow}>
             <View style={styles.itemBox}>
-                <Ionicons name="school-outline" size={hp('3.5%')} color={COLORS.darkGreen} />
-                <Text style={styles.facilityText}>My Courses</Text>
+              <Ionicons name="school-outline" size={hp('3.5%')} color={COLORS.darkGreen} />
+              <Text style={styles.facilityText}>My Courses</Text>
             </View>
             <View style={styles.itemBox}>
-                <EvilIcons name="comment" size={hp('3.5%')} color={COLORS.darkGreen} />
-                <Text style={styles.facilityText}>Comments</Text>
+              <EvilIcons name="comment" size={hp('3.5%')} color={COLORS.darkGreen} />
+              <Text style={styles.facilityText}>Comments</Text>
             </View>
           </View>
 
           {/* Row 2 */}
           <View style={styles.facilityRow}>
             <View style={styles.itemBox}>
-                <MaterialCommunityIcons name="certificate" size={hp('3.5%')} color={COLORS.darkGreen} />
-                <Text style={styles.facilityText}>Certificates</Text>
+              <MaterialCommunityIcons name="certificate" size={hp('3.5%')} color={COLORS.darkGreen} />
+              <Text style={styles.facilityText}>Certificates</Text>
             </View>
             <View style={styles.itemBox}>
-                <Ionicons name="settings-outline" size={hp('3.2%')} color={COLORS.darkGreen} />
-                <Text style={styles.facilityText}>Settings</Text>
+              <Ionicons name="settings-outline" size={hp('3.2%')} color={COLORS.darkGreen} />
+              <Text style={styles.facilityText}>Settings</Text>
             </View>
           </View>
 
           {/* Row 3 */}
           <View style={styles.facilityRow}>
             <View style={styles.itemBox}>
-                <Ionicons name="log-in-outline" size={hp('3.5%')} color={COLORS.darkGreen} />
-                <Text style={styles.facilityText}>Log Out</Text>
+              <Ionicons name="log-in-outline" size={hp('3.5%')} color={COLORS.darkGreen} />
+              <Text style={styles.facilityText}>Log Out</Text>
             </View>
             <View style={styles.itemBox}>
-                <Ionicons name="help-circle-outline" size={hp('3.5%')} color={COLORS.darkGreen} />
-                <Text style={styles.facilityText}>Help & Support</Text>
+              <Ionicons name="help-circle-outline" size={hp('3.5%')} color={COLORS.darkGreen} />
+              <Text style={styles.facilityText}>Help & Support</Text>
             </View>
           </View>
         </View>
 
         {/* Floating Action Button */}
-        <TouchableOpacity style={styles.floatingButton} onPress={completeProfile}>
+        <TouchableOpacity style={styles.floatingButton} onPress={() => navigation.navigate('DashboardStack')}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </ScrollView>
@@ -114,13 +100,13 @@ const ProfileScreen = () => {
 export default ProfileScreen;
 
 const styles = StyleSheet.create({
-  container: { 
-    flex: 1, 
+  container: {
+    flex: 1,
     backgroundColor: COLORS.backgroundWhite || '#fff',
   },
-  contentCenter: { 
-    alignItems: 'center', 
-    justifyContent: 'center' 
+  contentCenter: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   headerGradient: {
     paddingHorizontal: wp('5%'),
