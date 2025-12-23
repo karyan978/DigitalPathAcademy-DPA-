@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc } from 'firebase/firestore';
-
+import ChatScreen from '../screen/app/community/ChatScreen';
 import { auth, db } from '../config/firebaseConfig';
 import AuthStack from './AuthStack';
 import AppTabs from './AppTabs';
@@ -52,6 +52,14 @@ export default function RootNavigator() {
           <Stack.Screen
             name="DashboardStack"
             component={DashboardStack}
+          />
+
+          <Stack.Screen 
+            name="ChatScreen" 
+            component={ChatScreen} 
+            options={{ 
+                animation: 'slide_from_right'
+            }}
           />
         </>
       )}

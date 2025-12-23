@@ -15,7 +15,7 @@ const MainDashboard = () => {
         {/* Header Section */}
         <View style={styles.header}>
           <View>
-            <TouchableOpacity onPress={() => navigation.navigate('Home')}>
+            <TouchableOpacity onPress={() => navigation.navigate('AppTabs', { screen: 'Home' })}>
               <Image
                 style={styles.brandName}
                 source={require('../../../assets/icons.png')}
